@@ -1,4 +1,4 @@
- # (프로젝트명)
+ # 현지 맛집 인증 기반 어플플
 (개요, 프로젝트 소개)
 
  ## 📝 주요기능
@@ -32,7 +32,8 @@
 
 | 스택 | 설명 | 용도 |
 |-----|-----|-----|
-| 스택1 | 스택에 대한 설명 | 프로젝트 쓰임새 |
+| Kotlin | 프론트엔드 | 안드로이드 및 IOS 프론트 제작 |
+| Spring | 백엔드 | 안드로이드 및 IOS 백엔트 제작 |
 | ... | ... | ... |
 
  ## 🖼️ 스크린샷
@@ -83,10 +84,10 @@ ex) [Backend] 프로필 화면에서 로그인 불가하던 문제 해결     (�
 ### 💻 Backend
 
  ## 🧑‍💻 팀원
-| <img width="100" src="https://github.com/cotidie.png"> | <img width="100" src="https://github.com/github.png"> | 
+| <img width="100" src="https://github.com/cotidie.png"> | <img width="100" src="https://github.com/github.png"> | <img width="100" src="https://github.com/github.png"> | <img width="100" src="https://github.com/github.png"> | <img width="100" src="https://github.com/github.png"> | <img width="100" src="https://github.com/github.png"> | 
 |:----------------------:|:----------------------:|
-| [장원석](https://github.com/cotidie) | [팀원](https://github.com/cotidie) |
-| 💻 Android | 💻 역할 |
-| 15기 | 기수 |
+| [이도원](https://github.com/cotidie) | [양혜송](https://github.com/cotidie) | [이병찬](https://github.com/cotidie) | [이예람](https://github.com/cotidie) | [이가현](https://github.com/cotidie) | [김세엽](https://github.com/cotidie) |
+| 💻 기획자 | 💻 디자이너 | 💻 프론트엔드 | 💻 프론트엔드 | 💻 백엔드 | ⛹️ 백엔드 |
+| 23기 | 22기 | 22기 | 22기 | 21기 | 21기 |
 
  
