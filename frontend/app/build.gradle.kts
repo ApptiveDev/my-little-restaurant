@@ -101,7 +101,10 @@ tasks.register("createSpotlessPreCommitHook") {
             fi
         """.trimIndent())
 
-        // 실행 권한 부여
-        Runtime.getRuntime().exec("chmod +x ${gitHooksDirectory}/pre-commit").waitFor()
+        // 실행 권한 부여 (deprecated exec -> ProcessBuilder로 변경)
+        ProcessBuilder("chmod", "+x", "${gitHooksDirectory}/pre-commit")
+            .inheritIO()
+            .start()
+            .waitFor()
     }
 }
