@@ -1,4 +1,3 @@
 package com.apptive.mylittlerestaurant
 
-class ByeongchanActivity {
-}
+class ByeongchanActivity

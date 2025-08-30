@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.diffplug.spotless") version "7.2.1"
 }
 
 android {
@@ -23,7 +24,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -37,6 +38,7 @@ android {
     buildFeatures {
         compose = true
     }
+    buildToolsVersion = "33.0.1"
 }
 
 dependencies {
@@ -56,4 +58,50 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+spotless {
+    kotlin {
+        target("**/*.kt")
+        ktlint("0.50.0")
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+    kotlinGradle {
+        target("**/*.gradle.kts")
+        ktlint("0.50.0")
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+    java {
+        target("**/*.java")
+        trimTrailingWhitespace()
+        endWithNewline()
+        removeUnusedImports()
+    }
+}
+
+tasks.register("createSpotlessPreCommitHook") {
+    doLast {
+        val gitHooksDirectory = File("${project.rootDir}/.git/hooks")
+        if (!gitHooksDirectory.exists()) {
+            gitHooksDirectory.mkdirs()
+        }
+        File(gitHooksDirectory, "pre-commit").writeText("""
+            #!/bin/bash
+            echo "Running spotless check"
+            ./gradlew spotlessApply
+            if [ \$? -eq 0 ]; then
+                echo "Spotless check succeed"
+            else
+                echo "Spotless check failed" >&2
+                exit 1
+            fi
+        """.trimIndent())
+
+        // 실행 권한 부여
+        Runtime.getRuntime().exec("chmod +x ${gitHooksDirectory}/pre-commit").waitFor()
+    }
 }
