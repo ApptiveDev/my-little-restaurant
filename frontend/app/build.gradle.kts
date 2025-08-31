@@ -32,8 +32,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
     }
     buildFeatures {
         compose = true
@@ -51,6 +53,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -89,7 +93,8 @@ tasks.register("createSpotlessPreCommitHook") {
         if (!gitHooksDirectory.exists()) {
             gitHooksDirectory.mkdirs()
         }
-        File(gitHooksDirectory, "pre-commit").writeText("""
+        File(gitHooksDirectory, "pre-commit").writeText(
+            """
             #!/bin/bash
             echo "Running spotless check"
             ./gradlew spotlessApply
@@ -99,10 +104,11 @@ tasks.register("createSpotlessPreCommitHook") {
                 echo "Spotless check failed" >&2
                 exit 1
             fi
-        """.trimIndent())
+            """.trimIndent(),
+        )
 
         // 실행 권한 부여 (deprecated exec -> ProcessBuilder로 변경)
-        ProcessBuilder("chmod", "+x", "${gitHooksDirectory}/pre-commit")
+        ProcessBuilder("chmod", "+x", "$gitHooksDirectory/pre-commit")
             .inheritIO()
             .start()
             .waitFor()
