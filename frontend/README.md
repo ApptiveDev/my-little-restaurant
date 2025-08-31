@@ -46,29 +46,14 @@
 ### 폴더 구조
 ```
 app/
- └── src/
-      ├── main/
-      │    ├── java/com/apptive/mylittlerestaurant/
-      │    │    ├── di/                # 의존성 주입(Hilt, Dagger 등)
-      │    │    ├── data/              # 데이터 계층 (Repository, DataSource, Model 등)
-      │    │    │    ├── remote/       # 네트워크 관련 코드(API, DTO 등)
-      │    │    │    ├── local/        # 로컬 DB, SharedPreferences 등
-      │    │    │    └── model/        # 데이터 모델
-      │    │    ├── domain/            # 비즈니스 로직(UseCase, Entity 등)
-      │    │    ├── presentation/      # UI 계층
-      │    │    │    ├── screen/       # 화면별 폴더 (예: Home, Detail 등)
-      │    │    │    │    ├── HomeScreen.kt
-      │    │    │    │    ├── HomeViewModel.kt
-      │    │    │    │    └── HomeUiState.kt
-      │    │    │    ├── component/    # 공통 UI 컴포넌트
-      │    │    │    └── navigation/   # 네비게이션 관련 코드
-      │    │    └── util/              # 유틸리티 클래스
-      │    ├── res/
-      │    │    ├── layout/
-      │    │    ├── values/
-      │    │    ├── drawable/
-      │    │    └── ...
-      │    └── AndroidManifest.xml
+├── data/
+├── domain/
+├── ui/
+├── di/
+├── utils/
+├── navigation/
+├── build.gradle
+└── ...
 
 ```
 
