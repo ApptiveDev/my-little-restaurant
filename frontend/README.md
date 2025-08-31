@@ -30,7 +30,7 @@
 ## 컨벤션
 
 ### 코드 스타일
-- 클래스/파일: `PascalCase` (Ex: `MainActivity.kt`)
+- 클래스/파일: `PascalCase`
 - 변수/함수: `camelCase`
 - 상수: `UPPER_SNAKE_CASE`
 - 라인 길이: **120자 권장**
