@@ -86,25 +86,16 @@ app/
   - 관련 이슈 번호
   - 테스트 및 검증 방법 (로컬에서 확인하는 절차)
 - 병합 조건:
-  - CI 통과 (build, ktlint/spotless 검증, detekt, unit tests)
   - 승인(Approvals) 충족
   - conflict 없음
 - Merge 방식: 팀 합의 (권장: `Squash and merge`)
 
 #### PR 체크리스트(복사해서 사용)
 - [ ] 코드 빌드 성공
-- [ ] ktlint / spotless 통과
-- [ ] Detekt / Android Lint 통과
-- [ ] Unit tests 통과 (가능 시)
+- [ ] spotless 통과
 - [ ] 동작 확인(간단한 재현 절차 기재)
 - [ ] Reviewer 지정 및 승인
 
 ---
-
-## 포맷터 & 정적분석
-- 포맷터: **ktlint + spotless**
-- 정적분석: **Detekt**, Android Lint
-- 권장 설정: CI에서 `./gradlew spotlessCheck ktlintCheck detekt lint test` 등을 실행해 머지 전 검사
-- 로컬 훅: `pre-commit` 또는 Gradle task로 `spotlessApply` 자동 실행 권장
 
 
