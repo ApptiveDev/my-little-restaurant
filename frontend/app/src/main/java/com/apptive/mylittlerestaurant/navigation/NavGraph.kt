@@ -4,7 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.apptive.mylittlerestaurant.ui.screen.LoginScreen
+import com.apptive.mylittlerestaurant.ui.screen.home.HomeScreen
+import com.apptive.mylittlerestaurant.ui.screen.login.LoginScreen
 
 @Composable
 fun NavGraph() {
@@ -16,6 +17,9 @@ fun NavGraph() {
     ) {
         composable("login") {
             LoginScreen(navController)
+        }
+        composable("home") {
+            HomeScreen(navController)
         }
     }
 }

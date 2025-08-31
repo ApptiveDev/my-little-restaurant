@@ -1,4 +1,4 @@
-package com.apptive.mylittlerestaurant.ui.screen
+package com.apptive.mylittlerestaurant.ui.screen.login
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
