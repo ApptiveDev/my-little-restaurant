@@ -87,6 +87,11 @@ app/
   - conflict 없음
 - Merge 방식: 팀 합의 (권장: `Squash and merge`)
 
+## Spotless
 
+### 전체 스타일 검사
+```./gradlew spotlessCheck```
 
+### 전체 스타일 자동 적용
+```./gradlew spotlessApply```
 
