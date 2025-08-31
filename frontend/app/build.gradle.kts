@@ -89,7 +89,8 @@ tasks.register("createSpotlessPreCommitHook") {
         if (!gitHooksDirectory.exists()) {
             gitHooksDirectory.mkdirs()
         }
-        File(gitHooksDirectory, "pre-commit").writeText("""
+        File(gitHooksDirectory, "pre-commit").writeText(
+            """
             #!/bin/bash
             echo "Running spotless check"
             ./gradlew spotlessApply
@@ -99,10 +100,11 @@ tasks.register("createSpotlessPreCommitHook") {
                 echo "Spotless check failed" >&2
                 exit 1
             fi
-        """.trimIndent())
+            """.trimIndent(),
+        )
 
         // 실행 권한 부여 (deprecated exec -> ProcessBuilder로 변경)
-        ProcessBuilder("chmod", "+x", "${gitHooksDirectory}/pre-commit")
+        ProcessBuilder("chmod", "+x", "$gitHooksDirectory/pre-commit")
             .inheritIO()
             .start()
             .waitFor()
