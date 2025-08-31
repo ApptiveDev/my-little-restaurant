@@ -1,4 +1,3 @@
 package com.apptive.mylittlerestaurant
 
-class YeramActivity {
-}
+class YeramActivity
