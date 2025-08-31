@@ -90,12 +90,6 @@ app/
   - conflict 없음
 - Merge 방식: 팀 합의 (권장: `Squash and merge`)
 
-#### PR 체크리스트(복사해서 사용)
-- [ ] 코드 빌드 성공
-- [ ] spotless 통과
-- [ ] 동작 확인(간단한 재현 절차 기재)
-- [ ] Reviewer 지정 및 승인
 
----
 
 
